@@ -1,8 +1,10 @@
-package com.example.hf;
+package com.example.hf.views.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.hf.R;
 
 public class MainActivity extends AppCompatActivity {
 
