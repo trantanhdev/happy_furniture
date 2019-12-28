@@ -1,6 +1,7 @@
 package com.example.hf.views.activities;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.hf.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -24,7 +25,6 @@ public class IndexActivity extends AppCompatActivity {
         R.id.navigation_home, R.id.navigation_account, R.id.navigation_notifications)
         .build();
     NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-    NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
     NavigationUI.setupWithNavController(navView, navController);
   }
 
