@@ -1,7 +1,7 @@
 package com.example.hf.models;
 
 import com.example.hf.repositories.AccountRepository;
-import com.example.hf.views.data.Account;
+import com.example.hf.models.data.Account;
 
 public class AccountModel {
 

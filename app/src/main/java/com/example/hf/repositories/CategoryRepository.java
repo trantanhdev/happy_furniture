@@ -1,6 +1,6 @@
 package com.example.hf.repositories;
 
-import com.example.hf.views.data.Category;
+import com.example.hf.models.data.Category;
 
 import java.util.ArrayList;
 import java.util.List;

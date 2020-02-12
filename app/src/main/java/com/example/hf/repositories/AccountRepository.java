@@ -1,11 +1,10 @@
 package com.example.hf.repositories;
 
 import com.example.hf.util.Helper;
-import com.example.hf.views.data.Account;
+import com.example.hf.models.data.Account;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class AccountRepository {
 

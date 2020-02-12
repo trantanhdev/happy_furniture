@@ -1,4 +1,4 @@
-package com.example.hf.views.data;
+package com.example.hf.models.data;
 
 /**
  * Category of furniture
