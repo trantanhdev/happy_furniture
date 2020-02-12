@@ -1,4 +1,4 @@
-package com.example.hf.ui.home;
+package com.example.hf.view.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -1,7 +1,6 @@
-package com.example.hf.ui;
+package com.example.hf.view;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.example.hf.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -19,6 +18,7 @@ public class IndexActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_index);
     BottomNavigationView navView = findViewById(R.id.nav_view);
+
     // Passing each menu ID as a set of Ids because each
     // menu should be considered as top level destinations.
     AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(

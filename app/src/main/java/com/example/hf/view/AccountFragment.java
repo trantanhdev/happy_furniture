@@ -1,4 +1,4 @@
-package com.example.hf.ui;
+package com.example.hf.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

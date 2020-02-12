@@ -1,4 +1,4 @@
-package com.example.hf.ui.notifications;
+package com.example.hf.view.notifications;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
