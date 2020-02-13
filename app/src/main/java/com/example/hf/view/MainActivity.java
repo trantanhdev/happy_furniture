@@ -1,12 +1,19 @@
 package com.example.hf.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 import com.example.hf.R;
 
-public class MainActivity extends AppCompatActivity {
+import javax.inject.Inject;
+
+import dagger.android.support.DaggerAppCompatActivity;
+
+public class MainActivity extends DaggerAppCompatActivity {
+
+    private static final String TAG = "Main Activity";
+
+    @Inject
+    String abc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

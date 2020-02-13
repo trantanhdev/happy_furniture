@@ -1,4 +1,4 @@
-package com.example.hf.util;
+package com.example.hf;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
