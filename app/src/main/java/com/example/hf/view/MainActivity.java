@@ -12,9 +12,6 @@ public class MainActivity extends DaggerAppCompatActivity {
 
     private static final String TAG = "Main Activity";
 
-    @Inject
-    String abc;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

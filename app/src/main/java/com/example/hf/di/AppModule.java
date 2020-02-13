@@ -6,8 +6,4 @@ import dagger.Provides;
 @Module
 public class AppModule {
 
-  @Provides
-  static String someString() {
-    return "This is string";
-  }
 }
