@@ -1,10 +1,8 @@
-package com.example.hf.view;
+package com.example.hf.ui;
 
 import android.os.Bundle;
 
 import com.example.hf.R;
-
-import javax.inject.Inject;
 
 import dagger.android.support.DaggerAppCompatActivity;
 

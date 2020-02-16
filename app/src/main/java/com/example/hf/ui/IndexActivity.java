@@ -1,4 +1,4 @@
-package com.example.hf.view;
+package com.example.hf.ui;
 
 import android.os.Bundle;
 

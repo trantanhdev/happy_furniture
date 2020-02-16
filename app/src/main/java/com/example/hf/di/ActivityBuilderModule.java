@@ -1,6 +1,6 @@
 package com.example.hf.di;
 
-import com.example.hf.view.MainActivity;
+import com.example.hf.ui.MainActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
