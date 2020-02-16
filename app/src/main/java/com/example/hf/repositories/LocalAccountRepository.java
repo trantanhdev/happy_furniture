@@ -6,7 +6,7 @@ import com.example.hf.models.data.Account;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountRepository {
+public class LocalAccountRepository implements AccountRespository {
 
   private static List<Account> srcAccounts = new ArrayList<>();
 
