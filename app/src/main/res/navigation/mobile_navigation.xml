@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_account" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.hf.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_placeit"
+        android:name="com.example.hf.ui.placeit.PlaceitFragment"
+        android:label="@string/title_place_it"
+        tools:layout="@layout/fragment_placeit" />
 </navigation>

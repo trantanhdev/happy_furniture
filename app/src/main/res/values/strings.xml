@@ -3,5 +3,5 @@
     <string name="title_activity_index">IndexActivity</string>
     <string name="title_home">Home</string>
     <string name="title_account">Account</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_place_it">Place It</string>
 </resources>

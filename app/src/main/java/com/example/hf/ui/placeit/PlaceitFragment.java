@@ -1,4 +1,4 @@
-package com.example.hf.ui.notifications;
+package com.example.hf.ui.placeit;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hf.R;
 
-public class NotificationsFragment extends Fragment {
+public class PlaceitFragment extends Fragment {
 
-  private NotificationsViewModel notificationsViewModel;
+  private PlaceitViewModel placeitViewModel;
 
   public View onCreateView(@NonNull LayoutInflater inflater,
                            ViewGroup container, Bundle savedInstanceState) {
-    notificationsViewModel =
-        ViewModelProviders.of(this).get(NotificationsViewModel.class);
-    View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+    placeitViewModel =
+        ViewModelProviders.of(this).get(PlaceitViewModel.class);
+    View root = inflater.inflate(R.layout.fragment_placeit, container, false);
     final TextView textView = root.findViewById(R.id.text_notifications);
-    notificationsViewModel.getText().observe(this, new Observer<String>() {
+    placeitViewModel.getText().observe(this, new Observer<String>() {
       @Override
       public void onChanged(@Nullable String s) {
         textView.setText(s);
