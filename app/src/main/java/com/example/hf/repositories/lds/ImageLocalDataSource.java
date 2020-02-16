@@ -1,4 +1,4 @@
-package com.example.hf.repositories;
+package com.example.hf.repositories.lds;
 
 import com.example.hf.models.data.Image;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ImageRepository {
+public class ImageLocalDataSource {
 
   private static List<Image> srcImages = new ArrayList<>();
 

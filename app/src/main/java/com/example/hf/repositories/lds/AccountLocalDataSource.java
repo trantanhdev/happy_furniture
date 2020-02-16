@@ -1,12 +1,13 @@
-package com.example.hf.repositories;
+package com.example.hf.repositories.lds;
 
 import com.example.hf.Helper;
 import com.example.hf.models.data.Account;
+import com.example.hf.repositories.AccountRespository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocalAccountRepository implements AccountRespository {
+public class AccountLocalDataSource implements AccountRespository {
 
   private static List<Account> srcAccounts = new ArrayList<>();
 

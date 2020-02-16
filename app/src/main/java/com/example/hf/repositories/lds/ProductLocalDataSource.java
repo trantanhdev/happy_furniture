@@ -1,4 +1,4 @@
-package com.example.hf.repositories;
+package com.example.hf.repositories.lds;
 
 import com.example.hf.models.data.Product;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProductRepository {
+public class ProductLocalDataSource {
 
   private static List<Product> srcProducts = new ArrayList<>();
 

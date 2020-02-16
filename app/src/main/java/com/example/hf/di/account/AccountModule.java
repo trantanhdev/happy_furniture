@@ -1,7 +1,7 @@
 package com.example.hf.di.account;
 
 import com.example.hf.repositories.AccountRespository;
-import com.example.hf.repositories.LocalAccountRepository;
+import com.example.hf.repositories.lds.AccountLocalDataSource;
 
 import dagger.Module;
 import dagger.Provides;
@@ -11,7 +11,7 @@ public class AccountModule {
 
   @Provides
   AccountRespository getAccountRepository() {
-    return new LocalAccountRepository();
+    return new AccountLocalDataSource();
   }
 
 }
