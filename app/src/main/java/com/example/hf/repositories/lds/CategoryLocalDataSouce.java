@@ -1,11 +1,12 @@
 package com.example.hf.repositories.lds;
 
 import com.example.hf.models.data.Category;
+import com.example.hf.repositories.CategoryRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryLocalDataSouce {
+public class CategoryLocalDataSouce implements CategoryRepository {
 
   private static List<Category> srcCategories = new ArrayList<>();
 
@@ -15,8 +16,7 @@ public class CategoryLocalDataSouce {
     srcCategories.add(new Category(3, "Wallpaper"));
   }
 
-  public static List<Category> getCategories() {
+  public List<Category> get() {
     return srcCategories;
   }
-
 }

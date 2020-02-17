@@ -4,5 +4,6 @@ import com.example.hf.models.data.Account;
 
 public interface AccountRespository {
 
-  Account getById(int id);
+  Account get(int id);
+
 }

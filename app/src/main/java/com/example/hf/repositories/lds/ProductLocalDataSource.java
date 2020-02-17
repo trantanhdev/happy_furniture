@@ -1,12 +1,13 @@
 package com.example.hf.repositories.lds;
 
 import com.example.hf.models.data.Product;
+import com.example.hf.repositories.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProductLocalDataSource {
+public class ProductLocalDataSource implements ProductRepository {
 
   private static List<Product> srcProducts = new ArrayList<>();
 
@@ -19,7 +20,11 @@ public class ProductLocalDataSource {
     srcProducts.add(new Product(6, 3, "Wallpaper B", 4, "WP B desc"));
   }
 
-  public static List<Product> getProductsByCategory(final int categoryId) {
+  public List<Product> get() {
+    return srcProducts;
+  }
+
+  public List<Product> getByCategory(final int categoryId) {
     List<Product> outputProducts = (srcProducts.stream().parallel()
         .filter(product -> product.getCategoryId() == categoryId)
         .collect(Collectors.toList()));

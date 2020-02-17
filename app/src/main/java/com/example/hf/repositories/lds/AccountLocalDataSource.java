@@ -26,7 +26,7 @@ public class AccountLocalDataSource implements AccountRespository {
    * @param id
    * @return
    */
-  public Account getById(int id) {
+  public Account get(int id) {
     Account foundAccount = srcAccounts.stream().filter(account -> id == account.getId())
         .collect(Helper.toSingleton());
     return foundAccount;
