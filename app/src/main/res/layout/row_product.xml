@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:paddingLeft="20dp"
+    android:paddingBottom="5dp">
 
   <ImageView
       android:id="@+id/img_profile"
       android:layout_width="100dp"
-      android:layout_height="100dp">
+      android:layout_height="100dp"
+      android:src="@drawable/f_1_1"
+      android:background="@color/colorPrimary"
+      android:layout_marginRight="10dp">
   </ImageView>
-  <TextView
-      android:id="@+id/name"
+
+  <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="name">
-  </TextView>
+      android:orientation="vertical">
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Wood Chair">
+    </TextView>
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic|bold"
+        android:textSize="18dp"
+        android:text="£100">
+    </TextView>
+  </LinearLayout>
 </LinearLayout>
