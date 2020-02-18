@@ -2,11 +2,11 @@ package com.example.hf.repositories;
 
 import com.example.hf.models.data.Product;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface ProductRepository {
 
-  public List<Product> get();
+  public ArrayList<Product> get();
 
-  public List<Product> getByCategory(int categoryId);
+  //public ArrayList<Product> getByCategory(int categoryId);
 }

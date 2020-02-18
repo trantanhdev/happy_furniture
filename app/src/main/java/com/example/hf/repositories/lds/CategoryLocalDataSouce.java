@@ -13,7 +13,7 @@ public class CategoryLocalDataSouce implements CategoryRepository {
   static {
     srcCategories.add(new Category(1, "Chair"));
     srcCategories.add(new Category(2, "Table"));
-    srcCategories.add(new Category(3, "Wallpaper"));
+    srcCategories.add(new Category(3, "Frame"));
   }
 
   public List<Category> get() {

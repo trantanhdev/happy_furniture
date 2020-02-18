@@ -40,7 +40,7 @@ public class IndexActivity extends DaggerAppCompatActivity {
     NavigationUI.setupWithNavController(navView, navController);
 
 
-    Account acc = respository.getById(1);
+    Account acc = respository.get(1);
     Log.d(TAG, "Account name is: " + acc.getGivenName());
   }
 
