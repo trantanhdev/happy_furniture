@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.example.hf.R;
 import com.example.hf.models.data.Product;
+import com.example.hf.util.Constaint;
 
 import java.util.ArrayList;
 
@@ -34,10 +35,14 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
     LayoutInflater inflater = LayoutInflater.from(mContext);
     View rowView = inflater.inflate(R.layout.row_product, parent, false);
 
-    int profileImage = getItem(position).getProfileImage();
-    String name = getItem(position).getName();
+
+    Product product = getItem(position);
+    String name = product.getName();
+    int profileImage = product.getProfileImage();
+    String priceStr = Constaint.CURRENCY + product.getPrice();
     ((ImageView)rowView.findViewById(R.id.img_profile)).setImageResource(profileImage);
     ((TextView)rowView.findViewById(R.id.name)).setText(name);
+    ((TextView)rowView.findViewById(R.id.price)).setText(priceStr);
     return rowView;
   }
 }
