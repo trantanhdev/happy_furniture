@@ -12,7 +12,7 @@ public class ProductLocalDataSource implements ProductRepository {
 
   static{
     srcProducts.add(new Product(1, 1, "Wood Chair", R.drawable.f_1_1,
-        new int[]{R.drawable.f_1_2, R.drawable.f_1_3},25, "This is a beautiful chair"));
+        new int[] {},25, "This is a beautiful chair"));
 //    srcProducts.add(new Product(3, 2, "Table A", 100, "Table A desc"));
 //    srcProducts.add(new Product(5, 3, "Wallpaper A", 4, "WP A desc"));
   }
