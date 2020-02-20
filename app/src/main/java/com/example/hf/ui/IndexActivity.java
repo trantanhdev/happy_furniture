@@ -6,21 +6,15 @@ import com.example.hf.R;
 import com.example.hf.repositories.AccountRespository;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import javax.inject.Inject;
-
-import dagger.android.support.DaggerAppCompatActivity;
-
-public class IndexActivity extends DaggerAppCompatActivity {
+public class IndexActivity extends AppCompatActivity {
 
   private static final String TAG = "Index Activity";
-
-  @Inject
-  AccountRespository respository;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +29,6 @@ public class IndexActivity extends DaggerAppCompatActivity {
         .build();
     NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
     NavigationUI.setupWithNavController(navView, navController);
-
-
-    //Account acc = respository.get(1);
   }
 
 }

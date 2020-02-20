@@ -2,11 +2,11 @@ package com.example.hf.ui;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.hf.R;
 
-import dagger.android.support.DaggerAppCompatActivity;
-
-public class MainActivity extends DaggerAppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Main Activity";
 

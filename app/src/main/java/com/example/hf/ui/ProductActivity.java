@@ -4,26 +4,25 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.hf.R;
 import com.example.hf.models.Product;
+import com.example.hf.repositories.ProductLocalDataSource;
 import com.example.hf.repositories.ProductRepository;
 import com.example.hf.util.Constaint;
 
-import javax.inject.Inject;
-
-import dagger.android.support.DaggerAppCompatActivity;
-
-public class ProductActivity extends DaggerAppCompatActivity {
+public class ProductActivity extends AppCompatActivity {
 
   private static final String TAG = "ProductActivity";
 
-  @Inject
-  ProductRepository repository;
+  private ProductRepository repository;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_product);
+    repository = new ProductLocalDataSource();
 
     Bundle b = getIntent().getExtras();
     int value = -1; // or other values

@@ -1,4 +1,4 @@
-package com.example.hf.repositories.lds;
+package com.example.hf.repositories;
 
 import com.example.hf.models.Category;
 import com.example.hf.repositories.CategoryRepository;
