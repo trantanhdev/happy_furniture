@@ -1,12 +1,15 @@
 package com.example.hf.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -18,6 +21,8 @@ import com.example.hf.R;
 import com.example.hf.models.data.Product;
 import com.example.hf.repositories.ProductRepository;
 import com.example.hf.repositories.lds.ProductLocalDataSource;
+import com.example.hf.ui.IndexActivity;
+import com.example.hf.ui.ProductActivity;
 import com.example.hf.ui.adapters.ProductsAdapter;
 
 import java.util.ArrayList;
@@ -48,6 +53,15 @@ public class HomeFragment extends Fragment {
     ArrayList<Product> products = productRepository.get();
     ProductsAdapter adapter = new ProductsAdapter(getContext(), R.layout.row_product, products);
     lstProducts.setAdapter(adapter);
+    lstProducts.setOnItemClickListener((parent, view, position, id) -> {
+      Product selectedProduct = products.get(position);
+      Intent intent = new Intent(getActivity(), ProductActivity.class);
+      Bundle b = new Bundle();
+      b.putInt("pid", selectedProduct.getId());
+      intent.putExtras(b);
+      startActivity(intent);
+    });
+
     return root;
   }
 }

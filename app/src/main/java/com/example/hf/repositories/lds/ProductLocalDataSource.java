@@ -5,6 +5,7 @@ import com.example.hf.models.data.Product;
 import com.example.hf.repositories.ProductRepository;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ProductLocalDataSource implements ProductRepository {
 
@@ -21,6 +22,17 @@ public class ProductLocalDataSource implements ProductRepository {
 
   public ArrayList<Product> get() {
     return srcProducts;
+  }
+
+  public Product get(int id) {
+    Optional<Product> optProduct = srcProducts.stream()
+        .filter(p -> p.getId() == id)
+        .findFirst();
+    if (optProduct.isPresent()) {
+      return optProduct.get();
+    }
+
+    return null;
   }
 
 //  public ArrayList<Product> getByCategory(final int categoryId) {
