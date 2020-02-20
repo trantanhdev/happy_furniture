@@ -4,4 +4,5 @@
   <string name="title_home">Home</string>
   <string name="title_account">Account</string>
   <string name="title_place_it">Place It</string>
+  <string name="btn_place_it">PLACE IT</string>
 </resources>

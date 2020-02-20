@@ -93,6 +93,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorTarget"
-        android:text="Place It"/>
+        android:text="@string/btn_place_it"/>
   </LinearLayout>
 </LinearLayout>
