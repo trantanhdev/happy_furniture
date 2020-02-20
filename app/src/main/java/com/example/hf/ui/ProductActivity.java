@@ -1,15 +1,22 @@
 package com.example.hf.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.hf.R;
+import com.example.hf.models.data.Product;
+import com.example.hf.repositories.ProductRepository;
 
-public class ProductActivity extends AppCompatActivity {
+import javax.inject.Inject;
+
+import dagger.android.support.DaggerAppCompatActivity;
+
+public class ProductActivity extends DaggerAppCompatActivity {
 
   private static final String TAG = "ProductActivity";
+
+  @Inject
+  ProductRepository repository;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +28,8 @@ public class ProductActivity extends AppCompatActivity {
     if(b != null)
       value = b.getInt("pid");
 
-    Toast.makeText(this, "product Id:" + value, Toast.LENGTH_LONG).show();
+    Product product = repository.get(value);
+    //Toast.makeText(this, "product Id:" + product.getName(), Toast.LENGTH_LONG).show();
+
   }
 }

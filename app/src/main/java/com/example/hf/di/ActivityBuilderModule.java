@@ -1,8 +1,10 @@
 package com.example.hf.di;
 
 import com.example.hf.di.account.AccountModule;
+import com.example.hf.di.product.ProductModule;
 import com.example.hf.ui.IndexActivity;
 import com.example.hf.ui.MainActivity;
+import com.example.hf.ui.ProductActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -19,4 +21,11 @@ public abstract class ActivityBuilderModule {
       }
   )
   abstract IndexActivity contributeIndexActivity();
+
+  @ContributesAndroidInjector (
+      modules = {
+          ProductModule.class
+      }
+  )
+  abstract ProductActivity contributeProductActivity();
 }
