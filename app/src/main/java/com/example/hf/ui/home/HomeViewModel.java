@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.hf.models.data.Product;
+import com.example.hf.models.Product;
 
 import java.util.List;
 

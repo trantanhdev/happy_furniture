@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hf.R;
-import com.example.hf.models.data.Product;
+import com.example.hf.models.Product;
 import com.example.hf.repositories.ProductRepository;
 import com.example.hf.util.Constaint;
 

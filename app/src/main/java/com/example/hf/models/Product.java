@@ -1,4 +1,4 @@
-package com.example.hf.models.data;
+package com.example.hf.models;
 
 /**
  * Product

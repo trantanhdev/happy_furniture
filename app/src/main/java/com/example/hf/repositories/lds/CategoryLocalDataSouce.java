@@ -1,6 +1,6 @@
 package com.example.hf.repositories.lds;
 
-import com.example.hf.models.data.Category;
+import com.example.hf.models.Category;
 import com.example.hf.repositories.CategoryRepository;
 
 import java.util.ArrayList;

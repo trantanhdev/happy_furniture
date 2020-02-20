@@ -1,7 +1,7 @@
 package com.example.hf.repositories.lds;
 
 import com.example.hf.R;
-import com.example.hf.models.data.Product;
+import com.example.hf.models.Product;
 import com.example.hf.repositories.ProductRepository;
 
 import java.util.ArrayList;

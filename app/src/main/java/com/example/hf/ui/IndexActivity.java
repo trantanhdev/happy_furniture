@@ -1,14 +1,11 @@
 package com.example.hf.ui;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.hf.R;
-import com.example.hf.models.data.Account;
 import com.example.hf.repositories.AccountRespository;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;

@@ -1,7 +1,6 @@
 package com.example.hf.ui.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.hf.R;
-import com.example.hf.models.data.Product;
+import com.example.hf.models.Product;
 import com.example.hf.util.Constaint;
 
 import java.util.ArrayList;

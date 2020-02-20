@@ -1,7 +1,7 @@
 package com.example.hf.repositories.lds;
 
 import com.example.hf.Helper;
-import com.example.hf.models.data.Account;
+import com.example.hf.models.Account;
 import com.example.hf.repositories.AccountRespository;
 
 import java.util.ArrayList;

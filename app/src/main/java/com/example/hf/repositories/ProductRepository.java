@@ -1,6 +1,6 @@
 package com.example.hf.repositories;
 
-import com.example.hf.models.data.Product;
+import com.example.hf.models.Product;
 
 import java.util.ArrayList;
 
