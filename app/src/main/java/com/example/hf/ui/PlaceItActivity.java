@@ -61,7 +61,6 @@ public class PlaceItActivity extends AppCompatActivity {
           TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
           andy.setParent(anchorNode);
           andy.setRenderable(pRenderable);
-          Toast.makeText(this, ""+andy.getLocalScale(), Toast.LENGTH_SHORT).show();
           andy.getScaleController().setSensitivity(0);
           andy.select();
         });
