@@ -1,11 +1,12 @@
 package com.example.hf.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,11 @@ import android.view.MotionEvent;
 import android.widget.Toast;
 
 import com.example.hf.R;
+import com.example.hf.ar.ArSourceBuilder;
+import com.example.hf.ar.FloorArFragment;
+import com.example.hf.models.ArModel;
+import com.example.hf.repositories.ArModelLocalDataSource;
+import com.example.hf.repositories.ArModelRepository;
 import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
@@ -26,29 +32,43 @@ public class PlaceItActivity extends AppCompatActivity {
   private static final String TAG = PlaceItActivity.class.getSimpleName();
   private static final double MIN_OPENGL_VERSION = 3.0;
 
+  private ArModelRepository arModelRepository;
+  private int arModelId;
   private ArFragment arFragment;
-  private ModelRenderable pRenderable;
+  private ModelRenderable mRenderable;
+  private static FragmentManager fragmentManager;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_place_it);
 
-    arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
+    if (!checkIsSupportedDeviceOrFinish(this)) {
+      return;
+    }
+    arModelRepository = new ArModelLocalDataSource();
 
-    ModelRenderable.builder()
-        .setSource(this, Uri.parse("Chair.sfb"))
-        .build()
-        .thenAccept(renderable -> pRenderable = renderable)
+    Bundle b = getIntent().getExtras();
+    if(b != null) arModelId = b.getInt("id");
+
+    ArModel model = arModelRepository.get(arModelId);
+    ArSourceBuilder.buildModel(this, model.getSourceType(), model.getUrl())
+        .thenAccept(result -> mRenderable = result)
         .exceptionally(
             throwable -> {
               Log.e(TAG, "Unable to load Renderable.", throwable);
               return null;
             });
 
+    fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+    arFragment  = new FloorArFragment();
+    fragmentTransaction.add(R.id.fragment_container, arFragment, null);
+    fragmentTransaction.commit();
+
     arFragment.setOnTapArPlaneListener(
         (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-          if (pRenderable == null) {
+          if (mRenderable == null) {
             return;
           }
 
@@ -60,7 +80,7 @@ public class PlaceItActivity extends AppCompatActivity {
           // Create the transformable andy and add it to the anchor.
           TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
           andy.setParent(anchorNode);
-          andy.setRenderable(pRenderable);
+          andy.setRenderable(mRenderable);
           andy.getScaleController().setSensitivity(0);
           andy.select();
         });

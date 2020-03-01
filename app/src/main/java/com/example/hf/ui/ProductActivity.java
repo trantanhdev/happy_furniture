@@ -29,7 +29,6 @@ public class ProductActivity extends AppCompatActivity {
     repository = new ProductLocalDataSource();
 
     Bundle b = getIntent().getExtras();
-    int value = -1; // or other values
     if(b != null)
       pId = b.getInt("pid");
 
@@ -40,11 +39,14 @@ public class ProductActivity extends AppCompatActivity {
 
     btnPlaceIt = findViewById(R.id.btn_place_id);
     btnPlaceIt.setOnClickListener(v -> {
-      Intent intent = new Intent(this, PlaceItActivity.class);
-      Bundle svaBundel = new Bundle();
-      svaBundel.putInt("pid", pId);
-      intent.putExtras(svaBundel);
-      startActivity(intent);
+      int arModelId = product.getArModelId();
+      if (arModelId > 0) {
+        Intent intent = new Intent(this, PlaceItActivity.class);
+        Bundle svaBundel = new Bundle();
+        svaBundel.putInt("id", arModelId);
+        intent.putExtras(svaBundel);
+        startActivity(intent);
+      }
     });
   }
 }

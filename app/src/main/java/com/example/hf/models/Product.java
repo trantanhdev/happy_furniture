@@ -12,9 +12,10 @@ public class Product {
   private int[] images;
   private int price;
   private String desc;
+  private int arModelId;
 
   public Product(int id, int categoryId, String name, int profileImage, int[] images, int price,
-                 String desc) {
+                 String desc, int arModelId) {
     this.id = id;
     this.categoryId = categoryId;
     this.name = name;
@@ -22,6 +23,7 @@ public class Product {
     this.images = images;
     this.price = price;
     this.desc = desc;
+    this.arModelId = arModelId;
   }
 
   public int getId() {
@@ -50,6 +52,10 @@ public class Product {
 
   public String getDesc() {
     return desc;
+  }
+
+  public int getArModelId() {
+    return arModelId;
   }
 
 }

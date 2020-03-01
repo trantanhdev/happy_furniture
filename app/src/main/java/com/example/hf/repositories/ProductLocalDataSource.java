@@ -1,6 +1,9 @@
 package com.example.hf.repositories;
 
 import com.example.hf.R;
+import com.example.hf.models.ArModel;
+import com.example.hf.models.ArPlaceType;
+import com.example.hf.models.ArSourceType;
 import com.example.hf.models.Product;
 
 import java.util.ArrayList;
@@ -12,11 +15,9 @@ public class ProductLocalDataSource implements ProductRepository {
 
   static{
     srcProducts.add(new Product(1, 1, "Wood Chair", R.drawable.f_1_1,
-        new int[] {},25, "This is a beautiful chair"));
+        new int[] {},25, "This is a beautiful chair", 1));
     srcProducts.add(new Product(2, 2, "Wood Table", R.drawable.f_2_1,
-        new int[] {},100, "This is a wood table"));
-//    srcProducts.add(new Product(3, 2, "Table A", 100, "Table A desc"));
-//    srcProducts.add(new Product(5, 3, "Wallpaper A", 4, "WP A desc"));
+        new int[] {},100, "This is a wood table", 0));
   }
 
   public ArrayList<Product> get() {
@@ -33,13 +34,5 @@ public class ProductLocalDataSource implements ProductRepository {
 
     return null;
   }
-
-//  public ArrayList<Product> getByCategory(final int categoryId) {
-//    List<Product> outputProducts = (srcProducts.stream().parallel()
-//        .filter(product -> product.getCategoryId() == categoryId)
-//        .collect(Collectors.toList()));
-//
-//    return outputProducts;
-//  }
 
 }
