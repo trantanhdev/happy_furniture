@@ -1,4 +1,4 @@
-package com.example.hf.ui.placeit;
+package com.example.hf.ui.scanit;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,15 +14,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hf.R;
 
-public class PlaceitFragment extends Fragment {
+public class ScanitFragment extends Fragment {
 
-  private PlaceitViewModel placeitViewModel;
+  private ScanitViewModel placeitViewModel;
 
   public View onCreateView(@NonNull LayoutInflater inflater,
                            ViewGroup container, Bundle savedInstanceState) {
     placeitViewModel =
-        ViewModelProviders.of(this).get(PlaceitViewModel.class);
-    View root = inflater.inflate(R.layout.fragment_placeit, container, false);
+        ViewModelProviders.of(this).get(ScanitViewModel.class);
+    View root = inflater.inflate(R.layout.fragment_scanit, container, false);
     final TextView textView = root.findViewById(R.id.text_notifications);
     placeitViewModel.getText().observe(this, new Observer<String>() {
       @Override

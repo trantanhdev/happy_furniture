@@ -12,8 +12,8 @@
         android:title="@string/title_account" />
 
     <item
-        android:id="@+id/navigation_placeit"
+        android:id="@+id/navigation_scanit"
         android:icon="@drawable/ic_ar_black_24dp"
-        android:title="@string/title_place_it" />
+        android:title="@string/title_scan_it" />
 
 </menu>

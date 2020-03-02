@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_account" />
 
     <fragment
-        android:id="@+id/navigation_placeit"
-        android:name="com.example.hf.ui.placeit.PlaceitFragment"
-        android:label="@string/title_place_it"
-        tools:layout="@layout/fragment_placeit" />
+        android:id="@+id/navigation_scanit"
+        android:name="com.example.hf.ui.scanit.ScanitFragment"
+        android:label="@string/title_scan_it"
+        tools:layout="@layout/fragment_scanit" />
 </navigation>
