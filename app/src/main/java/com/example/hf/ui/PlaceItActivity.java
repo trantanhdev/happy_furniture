@@ -16,7 +16,9 @@ import android.widget.Toast;
 import com.example.hf.R;
 import com.example.hf.ar.ArSourceBuilder;
 import com.example.hf.ar.FloorArFragment;
+import com.example.hf.ar.WallArFragment;
 import com.example.hf.models.ArModel;
+import com.example.hf.models.ArPlaceType;
 import com.example.hf.repositories.ArModelLocalDataSource;
 import com.example.hf.repositories.ArModelRepository;
 import com.google.ar.core.Anchor;
@@ -66,7 +68,12 @@ public class PlaceItActivity extends AppCompatActivity {
 
     fragmentManager = getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-    arFragment  = new FloorArFragment();
+    ArPlaceType placeType = model.getType();
+    if (ArPlaceType.FLOOR.equals(placeType)) {
+      arFragment = new FloorArFragment();
+    } else if (ArPlaceType.WALL.equals(placeType)) {
+      arFragment = new WallArFragment();
+    }
     fragmentTransaction.add(R.id.fragment_container, arFragment, null);
     fragmentTransaction.commit();
 

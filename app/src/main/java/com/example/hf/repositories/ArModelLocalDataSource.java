@@ -13,6 +13,7 @@ public class ArModelLocalDataSource implements ArModelRepository {
 
   static {
     srcArModels.add(new ArModel(1, ArPlaceType.FLOOR, ArSourceType.DEVICE, "Chair"));
+    srcArModels.add(new ArModel(2, ArPlaceType.WALL, ArSourceType.DEVICE, "rug"));
   }
 
   @Override

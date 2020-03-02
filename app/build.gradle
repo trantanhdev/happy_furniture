@@ -54,3 +54,9 @@ sceneform.asset('sampledata/Chair.obj',
         'default',
         'sampledata/Chair.sfa',
         'src/main/assets/Chair')
+
+
+sceneform.asset('sampledata/rug/rug.obj',
+        'default',
+        'sampledata/rug/rug.sfa',
+        'src/main/assets/rug')

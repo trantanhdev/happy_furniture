@@ -18,6 +18,8 @@ public class ProductLocalDataSource implements ProductRepository {
         new int[] {},25, "This is a beautiful chair", 1));
     srcProducts.add(new Product(2, 2, "Wood Table", R.drawable.f_2_1,
         new int[] {},100, "This is a wood table", 0));
+    srcProducts.add(new Product(3, 3, "Wall Rug", R.drawable.f_2_1,
+        new int[] {},35, "This is a Wall Rug", 2));
   }
 
   public ArrayList<Product> get() {
