@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_scanit"
-        android:name="com.example.hf.ui.scanit.ScanitFragment"
+        android:name="com.example.hf.ar.ArImageFragment"
         android:label="@string/title_scan_it"
         tools:layout="@layout/fragment_scanit" />
 </navigation>

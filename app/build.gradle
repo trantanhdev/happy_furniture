@@ -60,3 +60,8 @@ sceneform.asset('sampledata/rug/rug.obj',
         'default',
         'sampledata/rug/rug.sfa',
         'src/main/assets/rug')
+
+sceneform.asset('sampledata/bonsai/bonsai.obj',
+        'default',
+        'sampledata/bonsai/bonsai.sfa',
+        'src/main/assets/bonsai')
