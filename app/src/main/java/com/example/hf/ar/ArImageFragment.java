@@ -49,7 +49,7 @@ public class ArImageFragment extends ArFragment {
       if (image.getTrackingState().equals(TrackingState.TRACKING)) {
         if ("bonsai".equals(image.getName())) {
           Anchor anchor = image.createAnchor(image.getCenterPose());
-          ArSourceBuilder.buildModel(getContext(), ArSourceType.DEVICE, image.getName())
+          ArModelLoader.buildModel(getContext(), ArSourceType.DEVICE, image.getName())
               .thenAccept(builtModel -> placeModel(anchor, builtModel))
               .exceptionally(
                   throwable -> {

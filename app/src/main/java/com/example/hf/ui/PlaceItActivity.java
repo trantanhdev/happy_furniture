@@ -14,7 +14,7 @@ import android.view.MotionEvent;
 import android.widget.Toast;
 
 import com.example.hf.R;
-import com.example.hf.ar.ArSourceBuilder;
+import com.example.hf.ar.ArModelLoader;
 import com.example.hf.ar.FloorArFragment;
 import com.example.hf.ar.WallArFragment;
 import com.example.hf.models.ArModel;
@@ -56,7 +56,7 @@ public class PlaceItActivity extends AppCompatActivity {
     if(b != null) arModelId = b.getInt("id");
 
     ArModel model = arModelRepository.get(arModelId);
-    CompletableFuture<ModelRenderable> cfModelRenderable = ArSourceBuilder
+    CompletableFuture<ModelRenderable> cfModelRenderable = ArModelLoader
         .buildModel(this, model.getSourceType(), model.getUrl());
 
     cfModelRenderable.thenAccept(result -> mRenderable = result)
