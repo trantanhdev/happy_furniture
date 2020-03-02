@@ -27,6 +27,8 @@ import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 
+import java.util.concurrent.CompletableFuture;
+
 public class PlaceItActivity extends AppCompatActivity {
 
   private static final String TAG = PlaceItActivity.class.getSimpleName();
@@ -52,8 +54,10 @@ public class PlaceItActivity extends AppCompatActivity {
     if(b != null) arModelId = b.getInt("id");
 
     ArModel model = arModelRepository.get(arModelId);
-    ArSourceBuilder.buildModel(this, model.getSourceType(), model.getUrl())
-        .thenAccept(result -> mRenderable = result)
+    CompletableFuture<ModelRenderable> cfModelRenderable = ArSourceBuilder
+        .buildModel(this, model.getSourceType(), model.getUrl());
+
+    cfModelRenderable.thenAccept(result -> mRenderable = result)
         .exceptionally(
             throwable -> {
               Log.e(TAG, "Unable to load Renderable.", throwable);
