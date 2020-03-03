@@ -25,10 +25,13 @@ import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
+import com.google.ar.sceneform.Node;
+import com.google.ar.sceneform.Scene;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class PlaceItActivity extends AppCompatActivity {
@@ -79,14 +82,15 @@ public class PlaceItActivity extends AppCompatActivity {
 
     arFragment.setOnTapArPlaneListener(
         (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-          if (mRenderable == null) {
+          Scene scene = arFragment.getArSceneView().getScene();
+          if (mRenderable == null || hasAnchorNode(scene)) {
             return;
           }
 
           // Create the Anchor.
           Anchor anchor = hitResult.createAnchor();
           AnchorNode anchorNode = new AnchorNode(anchor);
-          anchorNode.setParent(arFragment.getArSceneView().getScene());
+          anchorNode.setParent(scene);
 
           // Create the transformable andy and add it to the anchor.
           TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
@@ -125,4 +129,27 @@ public class PlaceItActivity extends AppCompatActivity {
     }
     return true;
   }
+
+  /**
+   * Check whether scene have anchornode
+   *
+   * @param scene
+   * @return
+   */
+  public boolean hasAnchorNode(Scene scene) {
+    List<Node> nodes = scene.getChildren();
+
+    if (nodes.isEmpty()) {
+      return false;
+    }
+
+    for (Node node : nodes) {
+      if (node instanceof AnchorNode) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
 }

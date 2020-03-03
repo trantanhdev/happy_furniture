@@ -24,7 +24,7 @@ public class ArModelLoader {
               context,
               Uri.parse(url),
               RenderableSource.SourceType.GLB)
-          .setScale(0.08f)  // Scale the original model to 50%.
+          .setScale(0.09f)  // Scale the original model to 50%.
           .setRecenterMode(RenderableSource.RecenterMode.ROOT)
           .build())
           .setRegistryId(url)
