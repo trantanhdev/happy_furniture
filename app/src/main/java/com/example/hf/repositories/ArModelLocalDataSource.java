@@ -12,10 +12,10 @@ public class ArModelLocalDataSource implements ArModelRepository {
   private static ArrayList<ArModel> srcArModels = new ArrayList<>();
 
   static {
-    srcArModels.add(new ArModel(1, ArPlaceType.FLOOR, ArSourceType.DEVICE, "Chair"));
-    srcArModels.add(new ArModel(2, ArPlaceType.WALL, ArSourceType.DEVICE, "rug"));
+    srcArModels.add(new ArModel(1, ArPlaceType.FLOOR, ArSourceType.DEVICE, "Chair", 1));
+    srcArModels.add(new ArModel(2, ArPlaceType.WALL, ArSourceType.DEVICE, "rug", 1));
     srcArModels.add(new ArModel(3, ArPlaceType.FLOOR, ArSourceType.INTERNET,
-        "https://raw.githubusercontent.com/trantanhdev/data/master/desk.glb"));
+        "https://raw.githubusercontent.com/trantanhdev/data/master/desk.glb", 0.15f));
   }
 
   @Override

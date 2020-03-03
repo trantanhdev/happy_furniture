@@ -35,8 +35,10 @@ public class ArImageFragment extends ArFragment {
 
   private void loadImageDatabase(Config config, Session session) {
     Bitmap bonsaiBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bonsai);
+    Bitmap plantBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.plant);
     AugmentedImageDatabase aid = new AugmentedImageDatabase(session);
     aid.addImage("bonsai", bonsaiBitmap);
+    aid.addImage("plant", plantBitmap);
     config.setAugmentedImageDatabase(aid);
   }
 
@@ -47,9 +49,10 @@ public class ArImageFragment extends ArFragment {
 
     for (AugmentedImage image : images) {
       if (image.getTrackingState().equals(TrackingState.TRACKING)) {
-        if ("bonsai".equals(image.getName())) {
+        String imgName = image.getName();
+        if ("bonsai".equals(imgName) || "plant".equals(imgName)) {
           Anchor anchor = image.createAnchor(image.getCenterPose());
-          ArModelLoader.buildModel(getContext(), ArSourceType.DEVICE, image.getName())
+          ArModelLoader.buildModel(getContext(), ArSourceType.DEVICE, image.getName(), 1)
               .thenAccept(builtModel -> placeModel(anchor, builtModel))
               .exceptionally(
                   throwable -> {

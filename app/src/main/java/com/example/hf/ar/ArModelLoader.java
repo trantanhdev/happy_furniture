@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 public class ArModelLoader {
 
   public static CompletableFuture<ModelRenderable> buildModel(Context context, ArSourceType type,
-                                                              String url) {
+                                                              String url, float scale) {
     if (type.equals(ArSourceType.DEVICE)) {
       return ModelRenderable.builder()
           .setSource(context, Uri.parse(url + ".sfb"))
@@ -24,7 +24,7 @@ public class ArModelLoader {
               context,
               Uri.parse(url),
               RenderableSource.SourceType.GLB)
-          .setScale(0.09f)  // Scale the original model to 50%.
+          .setScale(scale)
           .setRecenterMode(RenderableSource.RecenterMode.ROOT)
           .build())
           .setRegistryId(url)

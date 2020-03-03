@@ -60,7 +60,7 @@ public class PlaceItActivity extends AppCompatActivity {
 
     ArModel model = arModelRepository.get(arModelId);
     CompletableFuture<ModelRenderable> cfModelRenderable = ArModelLoader
-        .buildModel(this, model.getSourceType(), model.getUrl());
+        .buildModel(this, model.getSourceType(), model.getUrl(), model.getScale());
 
     cfModelRenderable.thenAccept(result -> mRenderable = result)
         .exceptionally(

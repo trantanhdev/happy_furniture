@@ -7,12 +7,14 @@ public class ArModel {
   private ArPlaceType type;
   private ArSourceType sourceType;
   private String url;
+  private float scale;
 
-  public ArModel(int id, ArPlaceType type, ArSourceType sourceType, String url) {
+  public ArModel(int id, ArPlaceType type, ArSourceType sourceType, String url, float scale) {
     this.id = id;
     this.type = type;
     this.sourceType = sourceType;
     this.url = url;
+    this.scale = scale;
   }
 
   public int getId() {
@@ -29,5 +31,9 @@ public class ArModel {
 
   public String getUrl() {
     return url;
+  }
+
+  public float getScale() {
+    return scale;
   }
 }

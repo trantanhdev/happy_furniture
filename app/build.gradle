@@ -67,3 +67,9 @@ sceneform.asset('sampledata/bonsai/bonsai.obj',
         'default',
         'sampledata/bonsai/bonsai.sfa',
         'src/main/assets/bonsai')
+
+
+sceneform.asset('sampledata/plant/plant.obj',
+        'default',
+        'sampledata/plant/plant.sfa',
+        'src/main/assets/plant')
