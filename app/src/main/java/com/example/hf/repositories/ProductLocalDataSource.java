@@ -17,7 +17,7 @@ public class ProductLocalDataSource implements ProductRepository {
     srcProducts.add(new Product(1, 1, "Wood Chair", R.drawable.f_1_1,
         new int[] {},25, "This is a beautiful chair", 1));
     srcProducts.add(new Product(2, 2, "Wood Table", R.drawable.f_2_1,
-        new int[] {},100, "This is a wood table", 0));
+        new int[] {},100, "This is a wood table", 3));
     srcProducts.add(new Product(3, 3, "Wall Rug", R.drawable.f_3_1,
         new int[] {},35, "This is a Wall Rug", 2));
   }

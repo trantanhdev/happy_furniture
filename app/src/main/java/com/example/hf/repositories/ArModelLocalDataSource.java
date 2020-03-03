@@ -14,6 +14,8 @@ public class ArModelLocalDataSource implements ArModelRepository {
   static {
     srcArModels.add(new ArModel(1, ArPlaceType.FLOOR, ArSourceType.DEVICE, "Chair"));
     srcArModels.add(new ArModel(2, ArPlaceType.WALL, ArSourceType.DEVICE, "rug"));
+    srcArModels.add(new ArModel(3, ArPlaceType.FLOOR, ArSourceType.INTERNET,
+        "https://raw.githubusercontent.com/trantanhdev/data/master/desk.glb"));
   }
 
   @Override
