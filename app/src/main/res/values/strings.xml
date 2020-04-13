@@ -1,7 +1,7 @@
 <resources>
   <string name="app_name">Happy Furniture</string>
   <string name="title_activity_index">IndexActivity</string>
-  <string name="title_home">Home</string>
+  <string name="nav_title_1">List</string>
   <string name="title_account">Account</string>
   <string name="title_scan_it">Scan It</string>
   <string name="btn_place_it">PLACE IT</string>
