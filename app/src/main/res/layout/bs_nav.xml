@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/BottomSheet">
+
+  <LinearLayout
+      android:id="@+id/bs_nav_header"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_bs_header"
+        style="@style/ModalTitle"
+        android:text="@string/title_nav" />
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:paddingBottom="16dp">
+
+    <LinearLayout
+        android:id="@+id/bs_nav_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <ImageView
+          android:id="@+id/iv_bs_list"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:paddingTop="16dp"
+          android:paddingBottom="16dp"
+          app:srcCompat="@drawable/ic_format_list_bulleted" />
+
+      <TextView
+          android:id="@+id/tv_bs_list"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_weight="5"
+          android:text="@string/title_list" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bs_nav_ari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <ImageView
+          android:id="@+id/iv_bs_ari"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:paddingTop="16dp"
+          android:paddingBottom="16dp"
+          app:srcCompat="@drawable/ic_filter_center_focus" />
+
+      <TextView
+          android:id="@+id/tv_bs_ari"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_weight="5"
+          android:text="@string/title_img_scan" />
+    </LinearLayout>
+  </LinearLayout>
+
+</LinearLayout>

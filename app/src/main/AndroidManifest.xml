@@ -2,11 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hf">
   <!-- Both "AR Optional" and "AR Required" apps require CAMERA permission. -->
-  <uses-permission android:name="android.permission.CAMERA" />
-
-  <!-- Needed to load a glTF from the internet. -->
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <!-- Sceneform requires OpenGL ES 3.0 or later. -->
+  <uses-permission android:name="android.permission.CAMERA" /> <!-- Needed to load a glTF from the internet. -->
+  <uses-permission android:name="android.permission.INTERNET" /> <!-- Sceneform requires OpenGL ES 3.0 or later. -->
   <uses-feature
       android:glEsVersion="0x00030000"
       android:required="true" />
@@ -24,9 +21,11 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
-    <activity android:name=".ui.PlaceItActivity"></activity>
-    <activity android:name=".ui.ProductActivity" />
-    <activity android:name=".ui.IndexActivity">
+    <activity android:name=".ScanImageActivity"></activity>
+    <activity android:name=".product.ProductsActivity" />
+    <activity android:name=".product.PlaceItActivity" />
+    <activity android:name=".product.ProductActivity" />
+    <activity android:name=".DecorActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 

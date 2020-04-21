@@ -5,14 +5,16 @@ import com.google.ar.core.Session;
 import com.google.ar.sceneform.ux.ArFragment;
 
 /**
- * AR Fragment for Wall
+ * Combine plane AR Fragment
  */
-public class WallArFragment extends ArFragment {
+public class FloorCombineArFragment extends ArFragment {
 
   @Override
   protected Config getSessionConfiguration(Session session) {
     Config config = super.getSessionConfiguration(session);
-    config.setPlaneFindingMode(Config.PlaneFindingMode.VERTICAL);
+    config.setPlaneFindingMode(Config.PlaneFindingMode.HORIZONTAL);
     return config;
   }
+
+  
 }

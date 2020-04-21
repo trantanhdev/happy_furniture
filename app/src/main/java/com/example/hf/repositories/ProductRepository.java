@@ -1,12 +1,16 @@
 package com.example.hf.repositories;
 
+import com.example.hf.models.Place;
 import com.example.hf.models.Product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface ProductRepository {
 
   public ArrayList<Product> get();
 
   public Product get(int id);
+
+  public List<Product> getByPlace(Place place);
 }

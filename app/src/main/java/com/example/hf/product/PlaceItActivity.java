@@ -1,4 +1,4 @@
-package com.example.hf.ui;
+package com.example.hf.product;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -18,7 +18,7 @@ import com.example.hf.ar.ArModelLoader;
 import com.example.hf.ar.FloorArFragment;
 import com.example.hf.ar.WallArFragment;
 import com.example.hf.models.ArModel;
-import com.example.hf.models.ArPlaceType;
+import com.example.hf.models.Place;
 import com.example.hf.repositories.ArModelLocalDataSource;
 import com.example.hf.repositories.ArModelRepository;
 import com.google.ar.core.Anchor;
@@ -41,6 +41,7 @@ public class PlaceItActivity extends AppCompatActivity {
 
   private ArModelRepository arModelRepository;
   private int arModelId;
+  private Place productPlace;
   private ArFragment arFragment;
   private ModelRenderable mRenderable;
   private static FragmentManager fragmentManager;
@@ -55,8 +56,12 @@ public class PlaceItActivity extends AppCompatActivity {
     }
     arModelRepository = new ArModelLocalDataSource();
 
+    // get passed Product data
     Bundle b = getIntent().getExtras();
-    if(b != null) arModelId = b.getInt("id");
+    if(b != null) {
+      arModelId = b.getInt("id");
+      productPlace = Place.valueOf(b.getString("place"));
+    }
 
     ArModel model = arModelRepository.get(arModelId);
     CompletableFuture<ModelRenderable> cfModelRenderable = ArModelLoader
@@ -71,10 +76,9 @@ public class PlaceItActivity extends AppCompatActivity {
 
     fragmentManager = getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-    ArPlaceType placeType = model.getType();
-    if (ArPlaceType.FLOOR.equals(placeType)) {
+    if (Place.FLOOR.equals(productPlace)) {
       arFragment = new FloorArFragment();
-    } else if (ArPlaceType.WALL.equals(placeType)) {
+    } else if (Place.WALL.equals(productPlace)) {
       arFragment = new WallArFragment();
     }
     fragmentTransaction.add(R.id.fragment_container, arFragment, null);
