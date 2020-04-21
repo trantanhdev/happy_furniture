@@ -2,15 +2,22 @@ package com.example.hf;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.PixelCopy;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import com.example.hf.ar.ArModelLoader;
 import com.example.hf.dialogs.NavBottomSheet;
@@ -25,16 +32,24 @@ import com.example.hf.repositories.ProductRepository;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.ar.core.Anchor;
 import com.google.ar.core.Frame;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.core.Trackable;
 import com.google.ar.sceneform.AnchorNode;
+import com.google.ar.sceneform.ArSceneView;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -44,19 +59,7 @@ public class DecorActivity extends AppCompatActivity implements
   private static final String TAG = "Decor Activity";
   private BottomAppBar babDecor;
   private FloatingActionButton fabAdd;
-
-//  private LinearLayout bsNav;
-//  private BottomSheetBehavior bsbNav;
-//  private LinearLayout bsNavHeader;
-//  private LinearLayout bsNavList;
-//  private LinearLayout bsNavAri;
-
   private ProductsBottomSheet bsProducts;
-  private BottomSheetBehavior bsbProducts;
-  private LinearLayout bsProductsHeader;
-  private ListView lvProducts;
-
-  private ProductRepository repository;
   private ArModelRepository arModelRepository;
   private ModelRenderable mRenderable;
 
@@ -85,22 +88,6 @@ public class DecorActivity extends AppCompatActivity implements
       bsProducts.show(getSupportFragmentManager(), "productsBottomSheet");
     });
 
-//    bsNav = findViewById(R.id.bs_nav);
-//    bsbNav = BottomSheetBehavior.from(bsNav);
-//    bsbNav.setState(BottomSheetBehavior.STATE_HIDDEN);
-//    bsNavHeader = findViewById(R.id.bs_nav_header);
-//    bsNavList = findViewById(R.id.bs_nav_list);
-//    bsNavAri = findViewById(R.id.bs_nav_ari);
-
-//    bsProducts = findViewById(R.id.bs_products);
-//    bsbProducts = BottomSheetBehavior.from(bsProducts);
-//    bsbProducts.setState(BottomSheetBehavior.STATE_HIDDEN);
-//    bsProductsHeader = findViewById(R.id.bs_products_header);
-//    lvProducts = findViewById(R.id.lv_products);
-
-//    repository = new ProductLocalDataSource();
-//    arModelRepository = new ArModelLocalDataSource();
-
     fragment = (ArFragment)
         getSupportFragmentManager().findFragmentById(R.id.arf_decor);
     fragment.getArSceneView().getScene().addOnUpdateListener(frameTime -> {
@@ -108,76 +95,13 @@ public class DecorActivity extends AppCompatActivity implements
       arFragmentUpdated();
     });
 
-
-
-//    bsbNav.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-//      @Override
-//      public void onStateChanged(@NonNull View view, int i) {
-//        if (BottomSheetBehavior.STATE_HIDDEN == i) {
-//          fabAdd.setVisibility(View.VISIBLE);
-//        }
-//      }
-//
-//      @Override
-//      public void onSlide(@NonNull View view, float v) {
-//
-//      }
-//    });
-//
-//    bsNavHeader.setOnClickListener(e -> {
-//      bsbNav.setState(BottomSheetBehavior.STATE_HIDDEN);
-//    });
-//    bsbProducts.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-//      @Override
-//      public void onStateChanged(@NonNull View view, int i) {
-//        if (BottomSheetBehavior.STATE_HIDDEN == i) {
-//          fabAdd.setVisibility(View.VISIBLE);
-//        }
-//      }
-//
-//      @Override
-//      public void onSlide(@NonNull View view, float v) {
-//
-//      }
-//    });
-//
-//    bsProductsHeader.setOnClickListener(e -> {
-//      bsbProducts.setState(BottomSheetBehavior.STATE_HIDDEN);
-//    });
-//
-//    fabAdd.setOnClickListener(e -> {
-//      fabAdd.setVisibility(View.INVISIBLE);
-//      bsbProducts.setState(BottomSheetBehavior.STATE_EXPANDED);
-//    });
-//
-//    lvProducts = findViewById(R.id.lv_products);
-//    ArrayList<Product> products = (ArrayList<Product>) repository.getByPlace(Place.FLOOR);
-//    ProductsAdapter adapter = new ProductsAdapter(this, R.layout.lvr_product, products);
-//    lvProducts.setAdapter(adapter);
-//    lvProducts.setOnItemClickListener((parent, view, position, id) -> {
-//      Product selectedProduct = products.get(position);
-//      ArModel model = arModelRepository.get(selectedProduct.getArModelId());
-//      CompletableFuture<ModelRenderable> cfModelRenderable = ArModelLoader
-//          .buildModel(this, model.getSourceType(), model.getUrl(), model.getScale());
-//
-//      cfModelRenderable.thenAccept(result -> {
-//        mRenderable = result;
-//        Toast.makeText(this, "The product is ready.", Toast.LENGTH_LONG).show();
-//      })
-//      .exceptionally(throwable -> {
-//        Toast.makeText(this, "The product is not ready.", Toast.LENGTH_LONG).show();
-//        return null;
-//      });
-//    });
-
-
   }
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.mi_photo: {
-        Toast.makeText(this, "Take photo", Toast.LENGTH_LONG).show();
+        takePhoto();
         break;
       }
     }
@@ -190,6 +114,9 @@ public class DecorActivity extends AppCompatActivity implements
     return true;
   }
 
+  /**
+   * arFragment update
+   */
   private void arFragmentUpdated() {
     if (null != mRenderable) {
       Frame frame = fragment.getArSceneView().getArFrame();
@@ -209,11 +136,22 @@ public class DecorActivity extends AppCompatActivity implements
     }
   }
 
+  /**
+   * get screen center
+   *
+   * @return
+   */
   private android.graphics.Point getScreenCenter() {
     View vw = findViewById(android.R.id.content);
     return new android.graphics.Point(vw.getWidth()/2, vw.getHeight()/2);
   }
 
+  /**
+   * add Node to Scene
+   *
+   * @param anchor
+   * @param renderable
+   */
   public void addNodeToScene(Anchor anchor, ModelRenderable renderable) {
     AnchorNode anchorNode = new AnchorNode(anchor);
     TransformableNode node = new TransformableNode(fragment.getTransformationSystem());
@@ -255,4 +193,86 @@ public class DecorActivity extends AppCompatActivity implements
 
     bsProducts.dismiss();
   }
+
+  /**
+   * take a photo
+   */
+  private void takePhoto() {
+    final String filename = generateFilename();
+    ArSceneView view = fragment.getArSceneView();
+
+    // Create a bitmap the size of the scene view.
+    final Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
+        Bitmap.Config.ARGB_8888);
+
+    // Create a handler thread to offload the processing of the image.
+    final HandlerThread handlerThread = new HandlerThread("PixelCopier");
+    handlerThread.start();
+    // Make the request to copy.
+    PixelCopy.request(view, bitmap, (copyResult) -> {
+      if (copyResult == PixelCopy.SUCCESS) {
+        try {
+          saveBitmapToDisk(bitmap, filename);
+        } catch (IOException e) {
+          Toast toast = Toast.makeText(DecorActivity.this, e.toString(),
+              Toast.LENGTH_LONG);
+          toast.show();
+          return;
+        }
+        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
+            "Photo saved", Snackbar.LENGTH_LONG);
+        snackbar.setAction("Open in Photos", v -> {
+          File photoFile = new File(filename);
+
+          Uri photoURI = FileProvider.getUriForFile(DecorActivity.this,
+              DecorActivity.this.getPackageName() + ".ar.name.provider",
+              photoFile);
+          Intent intent = new Intent(Intent.ACTION_VIEW, photoURI);
+          intent.setDataAndType(photoURI, "image/*");
+          intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+          startActivity(intent);
+
+        });
+        snackbar.show();
+      } else {
+        Toast toast = Toast.makeText(DecorActivity.this,
+            "Failed to copyPixels: " + copyResult, Toast.LENGTH_LONG);
+        toast.show();
+      }
+      handlerThread.quitSafely();
+    }, new Handler(handlerThread.getLooper()));
+  }
+
+  /**
+   * generate Filename
+   *
+   * @return
+   */
+  private String generateFilename() {
+    String date =
+        new SimpleDateFormat("yyyyMMddHHmmss", java.util.Locale.getDefault()).format(new Date());
+    return Environment.getExternalStoragePublicDirectory(
+        Environment.DIRECTORY_PICTURES) + File.separator + "HappyFurniture/" + date + "_screenshot.jpg";
+  }
+
+  private void saveBitmapToDisk(Bitmap bitmap, String filename) throws IOException {
+
+    File out = new File(filename);
+    if (!out.getParentFile().exists()) {
+      boolean rs = out.getParentFile().mkdirs();
+      if (!rs) {
+        throw new IOException("Failed to to create app folder");
+      }
+    }
+    try (FileOutputStream outputStream = new FileOutputStream(filename);
+         ByteArrayOutputStream outputData = new ByteArrayOutputStream()) {
+      bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputData);
+      outputData.writeTo(outputStream);
+      outputStream.flush();
+      outputStream.close();
+    } catch (IOException ex) {
+      throw new IOException("Failed to save bitmap to disk", ex);
+    }
+  }
+
 }
