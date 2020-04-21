@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.ProductActivity">
+    tools:context=".product.ProductActivity">
 
     <ImageView
         android:id="@+id/iv_profile"
@@ -94,6 +94,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorTarget"
-        android:text="@string/btn_place_it"/>
+        android:text="@string/title_place_it"/>
   </LinearLayout>
 </LinearLayout>

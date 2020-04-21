@@ -1,7 +1,6 @@
 package com.example.hf.repositories;
 
 import com.example.hf.models.ArModel;
-import com.example.hf.models.ArPlaceType;
 import com.example.hf.models.ArSourceType;
 
 import java.util.ArrayList;
@@ -12,9 +11,9 @@ public class ArModelLocalDataSource implements ArModelRepository {
   private static ArrayList<ArModel> srcArModels = new ArrayList<>();
 
   static {
-    srcArModels.add(new ArModel(1, ArPlaceType.FLOOR, ArSourceType.DEVICE, "Chair", 1));
-    srcArModels.add(new ArModel(2, ArPlaceType.WALL, ArSourceType.DEVICE, "rug", 1));
-    srcArModels.add(new ArModel(3, ArPlaceType.FLOOR, ArSourceType.INTERNET,
+    srcArModels.add(new ArModel(1, ArSourceType.DEVICE, "Chair", 1));
+    srcArModels.add(new ArModel(2, ArSourceType.DEVICE, "rug", 1));
+    srcArModels.add(new ArModel(3, ArSourceType.INTERNET,
         "https://raw.githubusercontent.com/trantanhdev/data/master/desk.glb", 0.15f));
   }
 

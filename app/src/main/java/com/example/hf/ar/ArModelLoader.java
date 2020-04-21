@@ -10,6 +10,9 @@ import com.google.ar.sceneform.rendering.ModelRenderable;
 
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * AR Model Loader
+ */
 public class ArModelLoader {
 
   public static CompletableFuture<ModelRenderable> buildModel(Context context, ArSourceType type,

@@ -1,4 +1,4 @@
-package com.example.hf.ui;
+package com.example.hf.product;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,6 +44,7 @@ public class ProductActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PlaceItActivity.class);
         Bundle svaBundel = new Bundle();
         svaBundel.putInt("id", arModelId);
+        svaBundel.putString("place", product.getPlace().name());
         intent.putExtras(svaBundel);
         startActivity(intent);
       }

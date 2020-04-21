@@ -1,6 +1,9 @@
 package com.example.hf.models;
 
-public enum ArPlaceType {
+/**
+ * Product Place
+ */
+public enum Place {
   FLOOR,
   WALL
 }

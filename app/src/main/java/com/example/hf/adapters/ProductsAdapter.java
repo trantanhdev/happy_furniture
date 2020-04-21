@@ -1,4 +1,4 @@
-package com.example.hf.ui.adapters;
+package com.example.hf.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -32,7 +32,7 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
   @Override
   public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
     LayoutInflater inflater = LayoutInflater.from(mContext);
-    View rowView = inflater.inflate(R.layout.row_product, parent, false);
+    View rowView = inflater.inflate(R.layout.lvr_product, parent, false);
 
 
     Product product = getItem(position);

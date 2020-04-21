@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ProductCard"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:cardElevation="2dp">
+
+  <FrameLayout
+      android:background="#FF0000"
+      android:layout_width="4dp"
+      android:layout_height="match_parent"/>
+
+  <LinearLayout
+      style="@style/ProductItem">
+    <ImageView
+        android:id="@+id/product_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/f_1_1"
+        android:background="@color/colorPrimaryBGR"
+        android:layout_marginBottom="10dp">
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/product_name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textStyle="bold"
+          android:textSize="18dp"
+          android:textColor="@color/colorPrimaryDark"
+          android:text="Wood Chair">
+      </TextView>
+
+      <TextView
+          android:id="@+id/product_price"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textStyle="italic|bold"
+          android:textSize="14dp"
+          android:text="£100">
+      </TextView>
+    </LinearLayout>
+  </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
