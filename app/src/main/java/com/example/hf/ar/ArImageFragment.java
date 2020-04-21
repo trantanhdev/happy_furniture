@@ -20,6 +20,9 @@ import com.google.ar.sceneform.ux.ArFragment;
 
 import java.util.Collection;
 
+/**
+ * ARFragment for Image
+ */
 public class ArImageFragment extends ArFragment {
 
   private static final String TAG = ArImageFragment.class.getSimpleName();

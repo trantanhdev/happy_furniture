@@ -1,8 +1,9 @@
 <resources>
   <string name="app_name">Happy Furniture</string>
-  <string name="title_activity_index">IndexActivity</string>
-  <string name="title_home">Home</string>
-  <string name="title_account">Account</string>
-  <string name="title_scan_it">Scan It</string>
-  <string name="btn_place_it">PLACE IT</string>
+
+  <string name="title_nav">Navigation</string>
+  <string name="title_products">Products List</string>
+  <string name="title_list">List View</string>
+  <string name="title_img_scan">Scan Image</string>
+  <string name="title_place_it">PLACE IT</string>
 </resources>

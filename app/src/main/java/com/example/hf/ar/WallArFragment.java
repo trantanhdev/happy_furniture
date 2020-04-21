@@ -4,6 +4,9 @@ import com.google.ar.core.Config;
 import com.google.ar.core.Session;
 import com.google.ar.sceneform.ux.ArFragment;
 
+/**
+ * AR Fragment for Wall
+ */
 public class WallArFragment extends ArFragment {
 
   @Override
