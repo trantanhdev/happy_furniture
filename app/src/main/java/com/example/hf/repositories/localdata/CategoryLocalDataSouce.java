@@ -1,4 +1,4 @@
-package com.example.hf.repositories;
+package com.example.hf.repositories.localdata;
 
 import com.example.hf.models.Category;
 import com.example.hf.models.Place;
@@ -15,7 +15,8 @@ public class CategoryLocalDataSouce implements CategoryRepository {
   static {
     srcCategories.add(new Category(1, "Chair"));
     srcCategories.add(new Category(2, "Table"));
-    srcCategories.add(new Category(3, "Rug"));
+    srcCategories.add(new Category(3, "Plant"));
+    srcCategories.add(new Category(4, "Rug"));
   }
 
   public List<Category> get() {

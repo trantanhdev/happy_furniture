@@ -1,6 +1,5 @@
 package com.example.hf.dialogs;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,7 @@ import com.example.hf.R;
 import com.example.hf.adapters.ProductsRecycleViewAdapter;
 import com.example.hf.models.Place;
 import com.example.hf.models.Product;
-import com.example.hf.repositories.ProductLocalDataSource;
+import com.example.hf.repositories.localdata.ProductLocalDataSource;
 import com.example.hf.repositories.ProductRepository;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 

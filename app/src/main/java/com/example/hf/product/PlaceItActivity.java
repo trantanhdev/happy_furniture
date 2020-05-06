@@ -19,7 +19,7 @@ import com.example.hf.ar.FloorArFragment;
 import com.example.hf.ar.WallArFragment;
 import com.example.hf.models.ArModel;
 import com.example.hf.models.Place;
-import com.example.hf.repositories.ArModelLocalDataSource;
+import com.example.hf.repositories.localdata.ArModelLocalDataSource;
 import com.example.hf.repositories.ArModelRepository;
 import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
