@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.PixelCopy;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +25,8 @@ import com.example.hf.dialogs.ProductBottomSheetItemClickListener;
 import com.example.hf.dialogs.ProductsBottomSheet;
 import com.example.hf.models.ArModel;
 import com.example.hf.models.Product;
-import com.example.hf.repositories.ArModelLocalDataSource;
+import com.example.hf.product.ProductsActivity;
+import com.example.hf.repositories.localdata.ArModelLocalDataSource;
 import com.example.hf.repositories.ArModelRepository;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

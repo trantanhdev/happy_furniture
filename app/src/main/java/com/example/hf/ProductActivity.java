@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.hf.PlaceItActivity;
 import com.example.hf.R;
 import com.example.hf.models.Product;
-import com.example.hf.repositories.ProductLocalDataSource;
+import com.example.hf.repositories.localdata.ProductLocalDataSource;
 import com.example.hf.repositories.ProductRepository;
 import com.example.hf.util.Constaint;
 
