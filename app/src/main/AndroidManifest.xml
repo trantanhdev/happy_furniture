@@ -28,9 +28,9 @@
       android:theme="@style/AppTheme"
       android:requestLegacyExternalStorage="true">
     <activity android:name=".ScanImageActivity"></activity>
-    <activity android:name=".product.ProductsActivity" />
-    <activity android:name=".product.PlaceItActivity" />
-    <activity android:name=".product.ProductActivity" />
+    <activity android:name=".ProductsActivity" />
+    <activity android:name=".PlaceItActivity" />
+    <activity android:name=".ProductActivity" />
     <activity android:name=".DecorActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

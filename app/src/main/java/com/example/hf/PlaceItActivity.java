@@ -1,4 +1,4 @@
-package com.example.hf.product;
+package com.example.hf;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.Toast;
 
-import com.example.hf.R;
 import com.example.hf.ar.ArModelLoader;
 import com.example.hf.ar.FloorArFragment;
 import com.example.hf.ar.WallArFragment;

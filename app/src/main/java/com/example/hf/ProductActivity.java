@@ -1,4 +1,4 @@
-package com.example.hf.product;
+package com.example.hf;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hf.PlaceItActivity;
 import com.example.hf.R;
 import com.example.hf.models.Product;
 import com.example.hf.repositories.ProductLocalDataSource;

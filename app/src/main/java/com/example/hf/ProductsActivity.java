@@ -1,4 +1,4 @@
-package com.example.hf.product;
+package com.example.hf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import com.example.hf.ProductActivity;
 import com.example.hf.R;
 import com.example.hf.models.Product;
 import com.example.hf.repositories.ProductLocalDataSource;
