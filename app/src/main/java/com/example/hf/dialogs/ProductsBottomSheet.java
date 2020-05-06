@@ -40,12 +40,21 @@ public class ProductsBottomSheet extends BottomSheetDialogFragment {
     View v = getLayoutInflater().inflate(R.layout.bs_products, container, false);
 
     rcvProducts = v.findViewById(R.id.rcv_products);
+
+    initProductCardsRecycleView();
+
+    return v;
+  }
+
+  /**
+   * initialize product cards recycle view
+   */
+  private void initProductCardsRecycleView() {
     rcvProducts.setLayoutManager(new LinearLayoutManager(getContext(),
         LinearLayoutManager.HORIZONTAL, false));
     ArrayList<Product> products = (ArrayList) productRepository.getByPlace(Place.FLOOR);
     ProductsRecycleViewAdapter adapter = new ProductsRecycleViewAdapter(getContext(), products);
     rcvProducts.setAdapter(adapter);
-
-    return v;
   }
+
 }
