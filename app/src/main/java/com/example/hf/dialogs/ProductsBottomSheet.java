@@ -43,9 +43,6 @@ public class ProductsBottomSheet extends BottomSheetDialogFragment {
     // initialize view model
     initViewModel();
 
-    // initialize Products card recycle view
-    initProductCardsRecycleView();
-
     return v;
   }
 
@@ -56,24 +53,21 @@ public class ProductsBottomSheet extends BottomSheetDialogFragment {
     viewModel = ViewModelProviders.of(this).get(ProductsBottomSheetViewModel.class);
     viewModel.init();
 
+    rcvProducts.setLayoutManager(new LinearLayoutManager(getContext(),
+        LinearLayoutManager.HORIZONTAL, false));
+
     // add products list observer
     viewModel.getProducts().observe(this, new Observer<List<Product>>() {
       @Override
       public void onChanged(List<Product> products) {
-        rcvaProducts.notifyDataSetChanged();
+        if (null == rcvaProducts) {
+          rcvaProducts = new ProductsRecycleViewAdapter(getContext(), viewModel.getProducts().getValue());
+          rcvProducts.setAdapter(rcvaProducts);
+        }
+
+        rcvaProducts.setData(products);
       }
     });
-  }
-
-  /**
-   * initialize product cards recycle view
-   */
-  private void initProductCardsRecycleView() {
-    rcvaProducts = new ProductsRecycleViewAdapter(getContext(),
-        viewModel.getProducts().getValue());
-    rcvProducts.setLayoutManager(new LinearLayoutManager(getContext(),
-        LinearLayoutManager.HORIZONTAL, false));
-    rcvProducts.setAdapter(rcvaProducts);
   }
 
 }

@@ -10,11 +10,7 @@ import java.util.List;
 
 public interface ProductRepository {
 
-  public ArrayList<Product> get();
-
-  public Product get(int id);
-
-  public List<Product> getByPlace(Place place);
+  public MutableLiveData<List<Product>> getByPlace(Place place);
 
   public MutableLiveData<List<Product>> getProducts();
 

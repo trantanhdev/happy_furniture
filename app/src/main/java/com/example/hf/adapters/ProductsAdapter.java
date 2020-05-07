@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.example.hf.R;
 import com.example.hf.models.Product;
 import com.example.hf.util.Constaint;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -37,9 +38,9 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
 
     Product product = getItem(position);
     String name = product.getName();
-    int profileImage = product.getProfileImage();
     String priceStr = Constaint.CURRENCY + product.getPrice();
-    ((ImageView)rowView.findViewById(R.id.img_profile)).setImageResource(profileImage);
+    ImageView imageView = rowView.findViewById(R.id.img_profile);
+    Picasso.with(mContext).load(product.getProfileImage()).into(imageView);
     ((TextView)rowView.findViewById(R.id.name)).setText(name);
     ((TextView)rowView.findViewById(R.id.price)).setText(priceStr);
     return rowView;

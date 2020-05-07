@@ -1,7 +1,7 @@
 package com.example.hf.models;
 
 /**
- * Category of furniture
+ * CategoryAPIRes of furniture
  */
 public class Category {
 

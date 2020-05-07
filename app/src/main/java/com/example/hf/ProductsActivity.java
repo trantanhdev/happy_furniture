@@ -31,9 +31,6 @@ public class ProductsActivity extends AppCompatActivity {
 
     // init view model
     initViewModel();
-
-    // init products list view
-    initProductsListView();
   }
 
   /**
@@ -45,7 +42,11 @@ public class ProductsActivity extends AppCompatActivity {
     viewModel.getProducts().observe(this, new Observer<List<Product>>() {
       @Override
       public void onChanged(List<Product> products) {
-        productsAdapter.setNotifyOnChange(true);
+        if (null == productsAdapter) {
+          initProductsListView();
+        } else {
+          productsAdapter.setNotifyOnChange(true);
+        }
       }
     });
   }

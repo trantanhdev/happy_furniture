@@ -49,6 +49,14 @@ dependencies {
     implementation 'com.google.ar.sceneform:core:1.15.0'
 
     implementation 'com.google.ar.sceneform:assets:1.15.0'
+
+    // REST API service
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    // JSON parser
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+
+    // image loader
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }
 
 

@@ -10,7 +10,6 @@
       android:id="@+id/img_profile"
       android:layout_width="100dp"
       android:layout_height="100dp"
-      android:src="@drawable/f_1_1"
       android:background="@color/colorPrimaryBGR"
       android:layout_marginRight="10dp">
   </ImageView>

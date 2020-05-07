@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@color/colorPrimaryBGR"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/f_1_1">
+        android:layout_marginBottom="10dp">
     </ImageView>
 
     <TextView
@@ -84,9 +83,9 @@
       </LinearLayout>
     </LinearLayout>
     <TextView
+        android:id="@+id/tv_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultricies ligula in turpis maximus, eu laoreet lectus efficitur. Cras vestibulum ut est sit amet pharetra. Duis sed venenatis sapien. Aliquam erat volutpat."
         android:textSize="10dp"
         android:layout_marginBottom="10dp"/>
     <Button

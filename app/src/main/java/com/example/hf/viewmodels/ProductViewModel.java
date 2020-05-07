@@ -5,24 +5,18 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.hf.models.Product;
 import com.example.hf.repositories.ProductRepository;
-import com.example.hf.repositories.localdata.ProductLocalDataSource;
+import com.example.hf.repositories.api.ProductAPIDataSource;
 
 public class ProductViewModel extends ViewModel {
 
-  private MutableLiveData<Product> product;
   private ProductRepository repo;
 
-  public void init(int productId) {
-    if (product != null) {
-      return;
-    }
-
-    repo = new ProductLocalDataSource();
-    product = repo.getProduct(productId);
+  public void init() {
+    repo = new ProductAPIDataSource();
   }
 
-  public MutableLiveData<Product> getProduct() {
-    return product;
+  public MutableLiveData<Product> getProduct(int productId) {
+    return repo.getProduct(productId);
   }
 
 }

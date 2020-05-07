@@ -19,38 +19,24 @@ public class ProductLocalDataSource implements ProductRepository {
   private static ArrayList<Product> dataset = new ArrayList<>();
 
   static{
-    dataset.add(new Product(1, 1, "Wood Chair", R.drawable.f_1_1,
+    dataset.add(new Product(1, 1, "Wood Chair", "",
         25, "This is a beautiful chair", Place.FLOOR, 1));
-    dataset.add(new Product(2, 2, "Wood Table", R.drawable.f_2_1,
+    dataset.add(new Product(2, 2, "Wood Table", "",
         100, "This is a wood table", Place.FLOOR, 3));
-    dataset.add(new Product(3, 4, "Wall Rug", R.drawable.f_3_1,
+    dataset.add(new Product(3, 4, "Wall Rug", "",
         35, "This is a Wall Rug", Place.WALL, 2));
-    dataset.add(new Product(4, 3, "Bonsai", R.drawable.pi_bonsai,
+    dataset.add(new Product(4, 3, "Bonsai", "",
         20, "This is a Bonsai", Place.FLOOR, 4));
-    dataset.add(new Product(5, 3, "Plant", R.drawable.pi_plant,
+    dataset.add(new Product(5, 3, "Plant", "",
         25, "This is a plant", Place.FLOOR, 5));
   }
 
-  public ArrayList<Product> get() {
-    return dataset;
-  }
-
-  public Product get(int id) {
-    Optional<Product> optProduct = dataset.stream()
-        .filter(p -> p.getId() == id)
-        .findFirst();
-    if (optProduct.isPresent()) {
-      return optProduct.get();
-    }
-
-    return null;
-  }
-
-  public List<Product> getByPlace(Place place) {
-    List<Product> output =  dataset.stream()
+  public MutableLiveData<List<Product>> getByPlace(Place place) {
+    MutableLiveData<List<Product>> output = new MutableLiveData<>();
+    List<Product> tmpProducts =  dataset.stream()
         .filter(p -> place.equals(p.getPlace()))
         .collect(Collectors.toList());
-
+    output.setValue(tmpProducts);
     return output;
   }
 

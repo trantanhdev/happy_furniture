@@ -8,13 +8,13 @@ public class Product {
   private int id;
   private int categoryId;
   private String name;
-  private int profileImage;
+  private String profileImage;
   private int price;
   private String desc;
   private Place place;
   private int arModelId;
 
-  public Product(int id, int categoryId, String name, int profileImage, int price, String desc,
+  public Product(int id, int categoryId, String name, String profileImage, int price, String desc,
                  Place place, int arModelId) {
     this.id = id;
     this.categoryId = categoryId;
@@ -38,7 +38,7 @@ public class Product {
     return name;
   }
 
-  public int getProfileImage() {
+  public String getProfileImage() {
     return profileImage;
   }
 

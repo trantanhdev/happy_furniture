@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.hf.models.Product;
 import com.example.hf.repositories.ProductRepository;
-import com.example.hf.repositories.localdata.ProductLocalDataSource;
+import com.example.hf.repositories.api.ProductAPIDataSource;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class ProductsViewModel extends ViewModel {
       return;
     }
 
-    repo = new ProductLocalDataSource();
+    repo = new ProductAPIDataSource();
     mProducts = repo.getProducts();
   }
 

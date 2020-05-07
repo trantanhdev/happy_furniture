@@ -13,6 +13,7 @@ import com.example.hf.dialogs.ProductBottomSheetItemClickListener;
 import com.example.hf.models.Product;
 import com.example.hf.util.Constaint;
 import com.google.android.material.card.MaterialCardView;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -30,6 +31,11 @@ public class ProductsRecycleViewAdapter extends RecyclerView.Adapter<ProductView
     itemClickListener = (ProductBottomSheetItemClickListener) context;
   }
 
+  public void setData(List<Product> products) {
+    this.models = products;
+    notifyDataSetChanged();
+  }
+
   @NonNull
   @Override
   public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -45,7 +51,7 @@ public class ProductsRecycleViewAdapter extends RecyclerView.Adapter<ProductView
   @Override
   public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
     Product product = models.get(position);
-    holder.productImage.setImageResource(product.getProfileImage());
+    Picasso.with(c).load(product.getProfileImage()).into(holder.productImage);
     holder.productName.setText(product.getName());
     String priceStr = Constaint.CURRENCY + product.getPrice();
     holder.productPrice.setText(priceStr);
@@ -58,6 +64,9 @@ public class ProductsRecycleViewAdapter extends RecyclerView.Adapter<ProductView
 
   @Override
   public int getItemCount() {
+    if (null == models) {
+      return 0;
+    }
     return models.size();
   }
 }
