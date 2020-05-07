@@ -14,16 +14,17 @@ import com.example.hf.models.Product;
 import com.example.hf.util.Constaint;
 import com.google.android.material.card.MaterialCardView;
 
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class ProductsRecycleViewAdapter extends RecyclerView.Adapter<ProductViewHolder> {
 
   private static final String TAG = "ProductsRecycleViewAdapter";
   private Context c;
-  private ArrayList<Product> models;
+  private List<Product> models;
   private ProductBottomSheetItemClickListener itemClickListener;
 
-  public ProductsRecycleViewAdapter(Context context, ArrayList<Product> products) {
+  public ProductsRecycleViewAdapter(Context context, List<Product> products) {
     c = context;
     models = products;
     itemClickListener = (ProductBottomSheetItemClickListener) context;

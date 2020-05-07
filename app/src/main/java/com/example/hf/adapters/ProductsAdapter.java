@@ -15,14 +15,14 @@ import com.example.hf.R;
 import com.example.hf.models.Product;
 import com.example.hf.util.Constaint;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ProductsAdapter extends ArrayAdapter<Product> {
 
   private static final String TAG = "ProductsAdapter";
   private final Context mContext;
 
-  public ProductsAdapter(@NonNull Context context, int resource, ArrayList<Product> products) {
+  public ProductsAdapter(@NonNull Context context, int resource, List<Product> products) {
     super(context, resource, products);
 
     this.mContext = context;
