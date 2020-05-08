@@ -53,6 +53,8 @@ public class PlaceItActivity extends AppCompatActivity {
     if (!checkIsSupportedDeviceOrFinish(this)) {
       return;
     }
+
+    // init repo
     arModelRepository = new ArModelLocalDataSource();
 
     // get passed Product data
@@ -62,6 +64,7 @@ public class PlaceItActivity extends AppCompatActivity {
       productPlace = Place.valueOf(b.getString("place"));
     }
 
+    // build 3D Model
     ArModel model = arModelRepository.get(arModelId);
     CompletableFuture<ModelRenderable> cfModelRenderable = ArModelLoader
         .buildModel(this, model.getSourceType(), model.getUrl(), model.getScale());
@@ -73,6 +76,7 @@ public class PlaceItActivity extends AppCompatActivity {
               return null;
             });
 
+    // detect which Arfragment should be used (horizontal or vertical plane)
     fragmentManager = getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
     if (Place.FLOOR.equals(productPlace)) {
@@ -83,9 +87,12 @@ public class PlaceItActivity extends AppCompatActivity {
     fragmentTransaction.add(R.id.fragment_container, arFragment, null);
     fragmentTransaction.commit();
 
+    // arfragment on tap handler
     arFragment.setOnTapArPlaneListener(
         (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
           Scene scene = arFragment.getArSceneView().getScene();
+
+          // only render if 3D model is not null and there is not any 3D model at scene
           if (mRenderable == null || hasAnchorNode(scene)) {
             return;
           }
@@ -96,11 +103,11 @@ public class PlaceItActivity extends AppCompatActivity {
           anchorNode.setParent(scene);
 
           // Create the transformable andy and add it to the anchor.
-          TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
-          andy.setParent(anchorNode);
-          andy.setRenderable(mRenderable);
-          andy.getScaleController().setSensitivity(0);
-          andy.select();
+          TransformableNode transformableNode = new TransformableNode(arFragment.getTransformationSystem());
+          transformableNode.setParent(anchorNode);
+          transformableNode.setRenderable(mRenderable);
+          transformableNode.getScaleController().setSensitivity(0);
+          transformableNode.select();
         });
   }
 

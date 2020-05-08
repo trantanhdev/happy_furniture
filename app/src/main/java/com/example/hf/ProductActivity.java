@@ -62,11 +62,19 @@ public class ProductActivity extends AppCompatActivity {
         tvName.setText(product.getName());
         tvPrice.setText(Constaint.CURRENCY + product.getPrice());
         tvDesc.setText(product.getDesc());
+
+        // initialize "PLACE IT" button
         initPlaceItButton(product.getArModelId(), product.getPlace());
       }
     });
   }
 
+  /**
+   * initialize "PLACE IT" button
+   *
+   * @param arModelId
+   * @param place
+   */
   private void initPlaceItButton(int arModelId, Place place) {
     btnPlaceIt.setOnClickListener(v -> {
       if (arModelId > 0) {

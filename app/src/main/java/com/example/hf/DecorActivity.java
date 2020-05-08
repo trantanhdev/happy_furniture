@@ -115,15 +115,26 @@ public class DecorActivity extends AppCompatActivity implements
   private void arFragmentUpdated() {
     if (null != mRenderable) {
       Frame frame = fragment.getArSceneView().getArFrame();
+
+      // get screen center point
       android.graphics.Point pt = getScreenCenter();
+
       List<HitResult> hits;
       if (frame != null) {
+
+        // get hit test
         hits = frame.hitTest(pt.x, pt.y);
         for (HitResult hit : hits) {
           Trackable trackable = hit.getTrackable();
+
+          // only process when track a plane
           if (trackable instanceof Plane &&
               ((Plane) trackable).isPoseInPolygon(hit.getHitPose())) {
+
+            // create add an anchor
             Anchor anchor = hit.createAnchor();
+
+            // add 3D model at anchor
             addNodeToScene(anchor, mRenderable);
           }
         }
@@ -148,6 +159,13 @@ public class DecorActivity extends AppCompatActivity implements
    * @param renderable
    */
   public void addNodeToScene(Anchor anchor, ModelRenderable renderable) {
+
+    // not process im 3D model is null
+    if (null == renderable) {
+      return;
+    }
+
+    // render 3D Model right on Anchor
     AnchorNode anchorNode = new AnchorNode(anchor);
     TransformableNode node = new TransformableNode(fragment.getTransformationSystem());
     node.setRenderable(renderable);
@@ -250,6 +268,13 @@ public class DecorActivity extends AppCompatActivity implements
         Environment.DIRECTORY_PICTURES) + File.separator + "HappyFurniture/" + date + "_screenshot.jpg";
   }
 
+  /**
+   * save bitmap to disk
+   *
+   * @param bitmap
+   * @param filename
+   * @throws IOException
+   */
   private void saveBitmapToDisk(Bitmap bitmap, String filename) throws IOException {
 
     File out = new File(filename);
