@@ -25,7 +25,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * ARFragment for Image
+ * ARFragment for Image scan
  */
 public class ArImageFragment extends ArFragment {
 
