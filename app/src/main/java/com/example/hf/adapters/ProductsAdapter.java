@@ -18,6 +18,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+/**
+ * Products list view adapter
+ */
 public class ProductsAdapter extends ArrayAdapter<Product> {
 
   private static final String TAG = "ProductsAdapter";
@@ -34,7 +37,6 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
   public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
     LayoutInflater inflater = LayoutInflater.from(mContext);
     View rowView = inflater.inflate(R.layout.lvr_product, parent, false);
-
 
     Product product = getItem(position);
     String name = product.getName();

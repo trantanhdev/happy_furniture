@@ -7,6 +7,9 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
+/**
+ * Product API client
+ */
 public interface ProductAPI {
 
   @GET("products.json")

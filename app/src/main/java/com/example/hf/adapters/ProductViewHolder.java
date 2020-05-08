@@ -2,7 +2,6 @@ package com.example.hf.adapters;
 
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextClock;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;

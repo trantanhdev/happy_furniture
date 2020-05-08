@@ -2,6 +2,9 @@ package com.example.hf.api.models;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * POJO class of Category response
+ */
 public class CategoryAPIRes {
 
   @SerializedName("id")

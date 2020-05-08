@@ -17,7 +17,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-
+/**
+ * Products recycle view adapter
+ */
 public class ProductsRecycleViewAdapter extends RecyclerView.Adapter<ProductViewHolder> {
 
   private static final String TAG = "ProductsRecycleViewAdapter";

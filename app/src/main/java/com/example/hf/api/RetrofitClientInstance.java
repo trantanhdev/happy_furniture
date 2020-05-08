@@ -3,6 +3,9 @@ package com.example.hf.api;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Retrofit Base Client
+ */
 public class RetrofitClientInstance {
 
   private static Retrofit retrofit;

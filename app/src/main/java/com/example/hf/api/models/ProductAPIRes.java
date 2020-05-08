@@ -2,6 +2,9 @@ package com.example.hf.api.models;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * POJO class of Product response
+ */
 public class ProductAPIRes {
 
   @SerializedName("id")
@@ -21,7 +24,8 @@ public class ProductAPIRes {
   @SerializedName("arModelId")
   private Integer arModelId;
 
-  public ProductAPIRes(Integer id, Integer categoryId, String name, String profileImage, Integer price, String desc, String place, Integer arModelId) {
+  public ProductAPIRes(Integer id, Integer categoryId, String name, String profileImage,
+                       Integer price, String desc, String place, Integer arModelId) {
     this.id = id;
     this.categoryId = categoryId;
     this.name = name;
